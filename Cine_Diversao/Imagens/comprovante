@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-100">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/img/favicon.ico" type="image/x-icon" rel="icon">
+    <title>Pré-cadastro Vacinação</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/questionario-1.0.css">
+</head>
+<body class="d-flex flex-column h-100">
+
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        
+        <form method="post" action="/" novalidate><input type="hidden" name="_csrf" value="4ba8e0ed-a851-4d26-bac9-b96257de0f62"/>
+            <div class="hs-progress-container">
+                <ul class="hs-progress-steps">
+                    <li class="hs-progress-active border-primary">
+                        <span class="hs-progress-step border-primary text-primary">1 de 5</span>
+                        <span class="hs-progress-title">
+                                    <p>Termos e Condições</p>
+                                    <p class="hs-progress-next-step">Próximo: Dados Pessoais</p>
+                                </span>
+                    </li>
+                    <li class="border-primary">
+                        <span class="hs-progress-step border-primary text-primary">2 de 5</span>
+                        <span class="hs-progress-title">
+                                    <p>Dados Pessoais</p>
+                                    <p class="hs-progress-next-step">Próximo: Dados Contato e Endereço</p>
+                                </span>
+                    </li>
+                    <li class="border-primary">
+                        <span class="hs-progress-step border-primary text-primary">3 de 5</span>
+                        <span class="hs-progress-title">
+                                    <p>Dados Contato e Endereço</p>
+                                    <p class="hs-progress-next-step border-primary">Próximo: Linha de Atuação</p>
+                                </span>
+                    </li>
+                    <li class="border-primary">
+                        <span class="hs-progress-step border-primary text-primary">4 de 5</span>
+                        <span class="hs-progress-title">
+                                    <p>Linha de Atuação</p>
+                                    <p class="hs-progress-next-step">Próximo: Questionário de Saúde</p>
+                                </span>
+                    </li>
+                    <li class="border-primary">
+                        <span class="hs-progress-step border-primary text-primary">5 de 5</span>
+                        <span class="hs-progress-title">
+                                    <p>Questionário de Saúde</p>
+                                </span>
+                    </li>
+                </ul>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="25"
+                         aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                </div>
+            </div>
+            <div class="hs-block">
+                <div class="form-row">
+                    <h4>Termos e Condições</h4>
+                </div>
+                <div class="form-row hs-condition">
+                    <p>Este questionário permitirá a coleta de dados para a vacinação contra a covid-19 em Umuarama.
+                        Seus dados estarão seguros, sendo sigilosos, de acordo com a <a
+                                href="http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/Lei/L13709.htm"
+                                target="_blank">Lei Geral de Proteção de Dados (LGPD)</a>.
+                    </p>
+                    <p>Ao aceitar o presente termo você declara estar ciente que o pré-cadastro
+                        não garante data específica para a vacinação.</p>
+                    <p>Declara ainda estar ciente que seus dados poderão ser utilizados para execução de políticas
+                        públicas, na área da saúde, no que se refere a vacinação, podendo a partir deles de modo anônimo
+                        serem gerados dados estatísticos.</p>
+                    <p>Os dados informados poderão ser utilizados pelo Município para atualização de suas bases
+                        cadastrais. Por fim ao prosseguir você aceita de uso de cookies por esta página, sendo os mesmos
+                        estritamente necessários para o seu funcionamento.</p>
+                </div>
+                <div class="row custom-control custom-switch custom-switch-lg">
+                    <input type="checkbox" class="custom-control-input" id="aceite" name="aceite" value="true"><input type="hidden" name="_aceite" value="on"/>
+                    <label class="custom-control-label" for="aceite">Aceito os termos e condições.</label>
+                    <div class="invalid-feedback">
+                        Para prosseguir com o cadastro é necessário aceitar os termos e condições.
+                    </div>
+                </div>
+            </div>
+            <div class="hs-block">
+                <div class="form-row hs-orientacoes">
+                    <div class="col-6">
+                        <small class="form-text text-muted">Campos obrigatórios <span>*</span></small>
+                    </div>
+                    <div class="col-6">
+                        <small id="cartaoSusHelp" class="form-text text-muted"><a
+                                href="https://conectesus-paciente.saude.gov.br/menu/home" target="_blank">Faça seu
+                            cartão SUS, ou acesse a segunda via clicando aqui</a></small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="nome">Nome<span>*</span></label>
+                        <input class="form-control" type="text" id="nome" name="paciente.nome" required
+                               value="">
+                        <div class="invalid-feedback">
+                            Nome é obrigatório.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label for="cpf">CPF<span>*</span></label>
+                        <input class="form-control" type="text" id="cpf" name="paciente.cpf" required
+                               value="">
+                        <div class="invalid-feedback" id="invalid-feedback-cpf">
+                            CPF inválido.
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="cartaoSus">Cartão SUS</label>
+                        <input class="form-control" type="text" id="cartaoSus"
+                               aria-describedby="cartaoSusHelp" name="paciente.cartaoSus" value="">
+                        <div class="invalid-feedback">
+                            Cartao SUS inválido.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="dataNascimento">Data Nascimento<span>*</span></label>
+                        <input class="form-control" type="text" id="dataNascimento" name="paciente.dataNascimento" required
+                               value="">
+                        <div class="invalid-feedback" id="invalid-feedback-dataNascimento">
+                            Data de nascimento inválida.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="sexo">Sexo<span>*</span></label>
+                        <select class="form-control" id="sexo" name="paciente.sexo" required>
+                            <option value="0">Selecione...</option>
+                            <option value="MASCULINO">Masculino</option>
+                            <option value="FEMININO">Feminino</option>
+                            <option value="OUTROS">Outros</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Sexo é obrigatório.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-block">
+                <div class="form-row hs-orientacoes">
+                    <small class="form-text text-muted">Campos obrigatórios <span>*</span></small>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="fone">Telefone/Celular<span>*</span></label>
+                        <input class="form-control" type="tel" id="fone" name="paciente.telefone" required
+                               value="">
+                        <div class="invalid-feedback" id="invalid-feedback-telefone">
+                            Telefone/Celular é obrigatório.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="email">E-mail<span>*</span></label>
+                        <input class="form-control" type="email" id="email" name="paciente.email"
+                               value="">
+                        <div class="invalid-feedback" id="invalid-feedback-email">
+                            E-mail é obrigatório.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="cep">CEP.<span>*</span></label>
+                        <input class="form-control" type="text" id="cep" name="paciente.endereco.cep" required
+                               value="">
+                        <div class="invalid-feedback" id="invalid-feedback-cep">
+                            CEP é obrigatório.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="logradouro">Endereço<span>*</span></label>
+                        <input class="form-control" type="text" id="logradouro" name="paciente.endereco.logradouro" required
+                               value="">
+                        <div class="invalid-feedback">
+                            Endereço é obrigatório.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 col-sm-12">
+                        <label for="numero">Número<span>*</span></label>
+                        <input class="form-control" type="text" id="numero" name="paciente.endereco.numero" required
+                               value="">
+                        <div class="invalid-feedback">
+                            Número é obrigatório, caso sua residência não o possua marque o campo acima "Sem número".
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12 col-sm-12">
+                        <label for="complemento">Complemento</label>
+                        <input class="form-control" type="text" id="complemento" name="paciente.endereco.complemento" value="">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="bairro">Bairro<span>*</span></label>
+                        <input class="form-control" type="text" id="bairro" name="paciente.endereco.bairro" required
+                               value="">
+                        <div class="invalid-feedback">
+                            Bairro é obrigatório.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-8">
+                        <label for="cidade">Cidade<span>*</span></label>
+                        <select class="form-control" id="cidade" name="paciente.endereco.cidade" disabled required>
+                            <option value="UMUARAMA">Umuarama</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Cidade é obrigatória.
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="uf">UF<span>*</span></label>
+                        <select class="form-control" id="uf" name="paciente.endereco.uf" disabled required>
+                            <option value="PR">PR</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            UF é obrigatório
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="ubs">Unidade Básica de Saúde de Referência<span>*</span></label>
+                        <select class="form-control" id="ubs" name="paciente.ubs.id" required>
+                            <option value="0" selected="selected">Selecione...</option>
+                            <option value="1">UBS 1º de Maio</option>
+                            <option value="2">UBS 26 de Junho</option>
+                            <option value="3">UBS Bem-Estar</option>
+                            <option value="4">UBS Posto Central </option>
+                            <option value="5">UBS Cohapar I/ Jardim União</option>
+                            <option value="6">UBS Cohapar II/ Jardim São Cristóvão</option>
+                            <option value="7">UBS Cohapar III/ Jardim Cruzeiro</option>
+                            <option value="8">UBS Cidade Alta</option>
+                            <option value="9">UBS Anchieta/ Guarani</option>
+                            <option value="10">UBS Industrial</option>
+                            <option value="11">UBS Jabuticabeiras</option>
+                            <option value="12">UBS Ouro Branco</option>
+                            <option value="13">UBS Jardim Lisboa</option>
+                            <option value="14">UBS Jardim Panorama</option>
+                            <option value="15">UBS Sonho Meu</option>
+                            <option value="16">UBS San Remo</option>
+                            <option value="17">UBS Vitória Régia</option>
+                            <option value="18">UBS Centro de Saúde Escola</option>
+                            <option value="19">UBS Lovat</option>
+                            <option value="20">UBS Roberto Silveira</option>
+                            <option value="21">UBS Santa Eliza</option>
+                            <option value="22">UBS Serra dos Dourados</option>
+                            <option value="23">UBS Vila Nova União</option>
+                            <option value="24">UBS Nova Jerusalém</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Unidade Básica de Saúde é obrigatória.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-block">
+                <div class="form-row hs-orientacoes">
+                    <small class="form-text text-muted">Questões obrigatórias <span>*</span></small>
+                </div>
+                <fieldset class="form-group form-row" id="question-1-atuacao">
+                    <legend class="col-form-label-lg">1. Qual sua área de atuação ou local de trabalho?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span>
+                    </legend>
+                    <div class="col-12">
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.0" name="areasAtuacao[0].checked" value="true"><input type="hidden" name="_areasAtuacao[0].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao0.areaAtuacao.id" name="areasAtuacao[0].areaAtuacao.id" value="12">
+                            <label class="custom-control-label" for="question.1.0">Aposentado/Pensionista</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.1" name="areasAtuacao[1].checked" value="true"><input type="hidden" name="_areasAtuacao[1].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao1.areaAtuacao.id" name="areasAtuacao[1].areaAtuacao.id" value="6">
+                            <label class="custom-control-label" for="question.1.1">Assistência Social</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.2" name="areasAtuacao[2].checked" value="true"><input type="hidden" name="_areasAtuacao[2].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao2.areaAtuacao.id" name="areasAtuacao[2].areaAtuacao.id" value="9">
+                            <label class="custom-control-label" for="question.1.2">Caminhoneiro</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.3" name="areasAtuacao[3].checked" value="true"><input type="hidden" name="_areasAtuacao[3].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao3.areaAtuacao.id" name="areasAtuacao[3].areaAtuacao.id" value="10">
+                            <label class="custom-control-label" for="question.1.3">Comércio</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.4" name="areasAtuacao[4].checked" value="true"><input type="hidden" name="_areasAtuacao[4].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao4.areaAtuacao.id" name="areasAtuacao[4].areaAtuacao.id" value="13">
+                            <label class="custom-control-label" for="question.1.4">Desempregado</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.5" name="areasAtuacao[5].checked" value="true"><input type="hidden" name="_areasAtuacao[5].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao5.areaAtuacao.id" name="areasAtuacao[5].areaAtuacao.id" value="5">
+                            <label class="custom-control-label" for="question.1.5">Educação</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.6" name="areasAtuacao[6].checked" value="true"><input type="hidden" name="_areasAtuacao[6].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao6.areaAtuacao.id" name="areasAtuacao[6].areaAtuacao.id" value="4">
+                            <label class="custom-control-label" for="question.1.6">Força de Segurança/Salvamento/Sistema Prisional</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.7" name="areasAtuacao[7].checked" value="true"><input type="hidden" name="_areasAtuacao[7].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao7.areaAtuacao.id" name="areasAtuacao[7].areaAtuacao.id" value="11">
+                            <label class="custom-control-label" for="question.1.7">Industria</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.8" name="areasAtuacao[8].checked" value="true"><input type="hidden" name="_areasAtuacao[8].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao8.areaAtuacao.id" name="areasAtuacao[8].areaAtuacao.id" value="1">
+                            <label class="custom-control-label" for="question.1.8">Instituição de Longa Permanência</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.9" name="areasAtuacao[9].checked" value="true"><input type="hidden" name="_areasAtuacao[9].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao9.areaAtuacao.id" name="areasAtuacao[9].areaAtuacao.id" value="2">
+                            <label class="custom-control-label" for="question.1.9">Saúde</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.10" name="areasAtuacao[10].checked" value="true"><input type="hidden" name="_areasAtuacao[10].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao10.areaAtuacao.id" name="areasAtuacao[10].areaAtuacao.id" value="3">
+                            <label class="custom-control-label" for="question.1.10">Serviços Funerários</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.11" name="areasAtuacao[11].checked" value="true"><input type="hidden" name="_areasAtuacao[11].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao11.areaAtuacao.id" name="areasAtuacao[11].areaAtuacao.id" value="8">
+                            <label class="custom-control-label" for="question.1.11">Transporte aéreo/ferroviário</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.12" name="areasAtuacao[12].checked" value="true"><input type="hidden" name="_areasAtuacao[12].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao12.areaAtuacao.id" name="areasAtuacao[12].areaAtuacao.id" value="7">
+                            <label class="custom-control-label" for="question.1.12">Transporte Coletivo</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.1.13" name="areasAtuacao[13].checked" value="true"><input type="hidden" name="_areasAtuacao[13].checked" value="on"/>
+                            <input type="hidden" id="areasAtuacao13.areaAtuacao.id" name="areasAtuacao[13].areaAtuacao.id" value="14">
+                            
+                            <label class="custom-control-label" for="question.1.13">
+                                <input type="text" class="form-control form-control-sm" placeholder="Outros - Informe aqui" id="areasAtuacao13.observacoes" name="areasAtuacao[13].observacoes" value="">
+
+                                <div class="invalid-feedback">
+                                    Você selecionou esta opção é necessário preencher o campo.
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group form-row" id="question-2-grupos">
+                    <legend class="col-form-label-lg">2. Você pertence a algum dos seguintes grupos?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span>
+                    </legend>
+                    <div class="col-12">
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.2.0" name="grupos[0].checked" value="true"><input type="hidden" name="_grupos[0].checked" value="on"/>
+                            <input type="hidden" id="grupos0.grupo.id" name="grupos[0].grupo.id" value="1">
+                            <label class="custom-control-label" for="question.2.0">Morador de instituição de longa permanência</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.2.1" name="grupos[1].checked" value="true"><input type="hidden" name="_grupos[1].checked" value="on"/>
+                            <input type="hidden" id="grupos1.grupo.id" name="grupos[1].grupo.id" value="2">
+                            <label class="custom-control-label" for="question.2.1">Pessoa em situação de rua</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.2.2" name="grupos[2].checked" value="true"><input type="hidden" name="_grupos[2].checked" value="on"/>
+                            <input type="hidden" id="grupos2.grupo.id" name="grupos[2].grupo.id" value="3">
+                            <label class="custom-control-label" for="question.2.2">População privada de liberdade</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.2.3" name="grupos[3].checked" value="true"><input type="hidden" name="_grupos[3].checked" value="on"/>
+                            <input type="hidden" id="grupos3.grupo.id" name="grupos[3].grupo.id" value="4">
+                            <label class="custom-control-label" for="question.2.3">Nenhuma das opções</label>
+                            
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="hs-block">
+                <div class="form-row hs-orientacoes">
+                    <small class="form-text text-muted">Questões obrigatórias <span>*</span></small>
+                </div>
+                <fieldset class="form-group form-row" id="question-1-saude">
+                    <legend class="col-form-label-lg">1. Teve febre nos últimos 3 (três) dias?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span>
+                    </legend>
+                    <div class="col-12">
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="febre3" id="questao.1.sim"
+                                   value="true">
+                            <label class="custom-control-label" for="questao.1.sim">Sim</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="febre3" id="questao.1.nao"
+                                   value="false" checked="checked">
+                            <label class="custom-control-label" for="questao.1.nao">Não</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group form-row" id="question-2-saude">
+                    <legend class="col-form-label-lg">2. Teve COVID-19 nos últimos 30 (trinta) dias?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span></legend>
+                    <div class="col-12">
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="covid30" id="questao.2.sim"
+                                   value="true">
+                            <label class="custom-control-label" for="questao.2.sim">Sim</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="covid30" id="questao.2.nao"
+                                   value="false" checked="checked">
+                            <label class="custom-control-label" for="questao.2.nao">Não</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group form-row" id="question-3-saude">
+                    <legend class="col-form-label-lg">3. Possui alguma comorbidade e ou faz algum
+                        tratamento?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span></legend>
+                    <div class="col-12">
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.0" name="comorbidades[0].checked" value="true"><input type="hidden" name="_comorbidades[0].checked" value="on"/>
+                            <input type="hidden" id="comorbidades0.comorbidade.id" name="comorbidades[0].comorbidade.id" value="7">
+                            <label class="custom-control-label" for="question.3.0">Anemia falciforme</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.1" name="comorbidades[1].checked" value="true"><input type="hidden" name="_comorbidades[1].checked" value="on"/>
+                            <input type="hidden" id="comorbidades1.comorbidade.id" name="comorbidades[1].comorbidade.id" value="1">
+                            <label class="custom-control-label" for="question.3.1">Câncer (quimioterapia e ou radioterapia)</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.2" name="comorbidades[2].checked" value="true"><input type="hidden" name="_comorbidades[2].checked" value="on"/>
+                            <input type="hidden" id="comorbidades2.comorbidade.id" name="comorbidades[2].comorbidade.id" value="4">
+                            <label class="custom-control-label" for="question.3.2">Doença pulmonar obstrutiva crônica</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.3" name="comorbidades[3].checked" value="true"><input type="hidden" name="_comorbidades[3].checked" value="on"/>
+                            <input type="hidden" id="comorbidades3.comorbidade.id" name="comorbidades[3].comorbidade.id" value="2">
+                            <label class="custom-control-label" for="question.3.3">Doença renal (hemodiálise)</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.4" name="comorbidades[4].checked" value="true"><input type="hidden" name="_comorbidades[4].checked" value="on"/>
+                            <input type="hidden" id="comorbidades4.comorbidade.id" name="comorbidades[4].comorbidade.id" value="5">
+                            <label class="custom-control-label" for="question.3.4">Doenças cardiovasculares ou cerebrovasculares</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.5" name="comorbidades[5].checked" value="true"><input type="hidden" name="_comorbidades[5].checked" value="on"/>
+                            <input type="hidden" id="comorbidades5.comorbidade.id" name="comorbidades[5].comorbidade.id" value="6">
+                            <label class="custom-control-label" for="question.3.5">Doenças imunossuprimidas</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.6" name="comorbidades[6].checked" value="true"><input type="hidden" name="_comorbidades[6].checked" value="on"/>
+                            <input type="hidden" id="comorbidades6.comorbidade.id" name="comorbidades[6].comorbidade.id" value="3">
+                            <label class="custom-control-label" for="question.3.6">Hipertensão</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.7" name="comorbidades[7].checked" value="true"><input type="hidden" name="_comorbidades[7].checked" value="on"/>
+                            <input type="hidden" id="comorbidades7.comorbidade.id" name="comorbidades[7].comorbidade.id" value="8">
+                            <label class="custom-control-label" for="question.3.7">Obesidade grau 3</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.8" name="comorbidades[8].checked" value="true"><input type="hidden" name="_comorbidades[8].checked" value="on"/>
+                            <input type="hidden" id="comorbidades8.comorbidade.id" name="comorbidades[8].comorbidade.id" value="10">
+                            <label class="custom-control-label" for="question.3.8">Não possuo comorbidades nem faço tratamentos</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.3.9" name="comorbidades[9].checked" value="true"><input type="hidden" name="_comorbidades[9].checked" value="on"/>
+                            <input type="hidden" id="comorbidades9.comorbidade.id" name="comorbidades[9].comorbidade.id" value="9">
+                            
+                            <label class="custom-control-label" for="question.3.9">
+                                <input type="text" class="form-control form-control-sm outros"
+                                       placeholder="Outros - Informe aqui"
+                                       id="comorbidades9.observacoes" name="comorbidades[9].observacoes" value="">
+                                <div class="invalid-feedback">
+                                    Você selecionou esta opção é necessário preencher o campo.
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group form-row" id="question-4-saude">
+                    <legend class="col-form-label-lg">4. Possui alguma alergia?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span>
+                    </legend>
+                    <div class="col-12">
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.4.0" name="alergias[0].checked" value="true"><input type="hidden" name="_alergias[0].checked" value="on"/>
+                            <input type="hidden" id="alergias0.alergia.id" name="alergias[0].alergia.id" value="3">
+                            <label class="custom-control-label" for="question.4.0">À medicamentos</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.4.1" name="alergias[1].checked" value="true"><input type="hidden" name="_alergias[1].checked" value="on"/>
+                            <input type="hidden" id="alergias1.alergia.id" name="alergias[1].alergia.id" value="4">
+                            <label class="custom-control-label" for="question.4.1">À ovos</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.4.2" name="alergias[2].checked" value="true"><input type="hidden" name="_alergias[2].checked" value="on"/>
+                            <input type="hidden" id="alergias2.alergia.id" name="alergias[2].alergia.id" value="2">
+                            <label class="custom-control-label" for="question.4.2">À alimentos</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.4.3" name="alergias[3].checked" value="true"><input type="hidden" name="_alergias[3].checked" value="on"/>
+                            <input type="hidden" id="alergias3.alergia.id" name="alergias[3].alergia.id" value="1">
+                            <label class="custom-control-label" for="question.4.3">À vacinas anteriores</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.4.4" name="alergias[4].checked" value="true"><input type="hidden" name="_alergias[4].checked" value="on"/>
+                            <input type="hidden" id="alergias4.alergia.id" name="alergias[4].alergia.id" value="5">
+                            <label class="custom-control-label" for="question.4.4">Já procurou tratamento para reações alérgicas?</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.4.5" name="alergias[5].checked" value="true"><input type="hidden" name="_alergias[5].checked" value="on"/>
+                            <input type="hidden" id="alergias5.alergia.id" name="alergias[5].alergia.id" value="7">
+                            <label class="custom-control-label" for="question.4.5">Não possuo alergias</label>
+                            
+                        </div>
+                        <div class="row custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="question.4.6" name="alergias[6].checked" value="true"><input type="hidden" name="_alergias[6].checked" value="on"/>
+                            <input type="hidden" id="alergias6.alergia.id" name="alergias[6].alergia.id" value="6">
+                            
+                            <label class="custom-control-label" for="question.4.6">
+                                <input type="text" class="form-control form-control-sm outros"
+                                       placeholder="Outros - Informe aqui"
+                                       id="alergias6.observacoes" name="alergias[6].observacoes" value="">
+                                <div class="invalid-feedback">
+                                    Você selecionou esta opção é necessário preencher o campo.
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </fieldset>
+                <fieldset class="form-group form-row" id="question-5-saude">
+                    <legend class="col-form-label-lg">5. Tomou alguma vacina nos últimos 14 (quatorze)
+                        dias?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span>
+                    </legend>
+                    <div class="col-12">
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="vacina14" id="questao.5.sim"
+                                   value="true">
+                            <label class="custom-control-label" for="questao.5.sim">Sim</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="vacina14" id="questao.5.nao"
+                                   value="false" checked="checked">
+                            <label class="custom-control-label" for="questao.5.nao">Não</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group form-row " id="question-6-saude">
+                    <legend class="col-form-label-lg">6. Já tomou a 1ª dose da vacina para COVID-19?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span>
+                    </legend>
+                    <div class="col-12">
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="primeiraDose" id="questao.6.sim"
+                                   value="true">
+                            <label class="custom-control-label" for="questao.6.sim">Sim</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="primeiraDose" id="questao.6.nao"
+                                   value="false" checked="checked">
+                            <label class="custom-control-label" for="questao.6.nao">Não</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12 col-md-6 vacinacao">
+
+                        <label for="vacina">Qual Vacina?<span>*</span></label>
+                        <select class="form-control" id="vacina" name="vacina" required>
+                            <option value="0" selected="selected">Selecione...</option>
+                            <option value="1">Oxford - Astrazeneca</option>
+                            <option value="2">Butantan - Coronavac</option>
+                            <option value="4">Pfizer (Comirnaty)</option>
+                            <option value="5">Janssen (Ad26.COV2.S)</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            É obrigatório selecionar uma vacina.
+                        </div>
+
+                    </div>
+                    <div class="form-group col-12 col-md-6 vacinacao">
+                        <label for="dataPrimeiraDose">Data da Vacinação<span>*</span></label>
+                        <input class="form-control" type="date" id="dataPrimeiraDose" name="dataPrimeiraDose"
+                               required
+                               value="">
+                        <div class="invalid-feedback" id="invalid-feedback-dataPrimeiraDose">
+                            Data de vacinação deve ser menor igual a data atual e maior igual a data 19/01/21 (início da
+                            vacinação).
+                        </div>
+
+                    </div>
+
+                </fieldset>
+                <fieldset class="form-group form-row " id="question-7-saude">
+                    <legend class="col-form-label-lg">7. Gestante?<span>*</span>
+                        <span class="hs-invalid-feedback">Questão obrigatória.</span>
+                    </legend>
+                    <div class="col-12">
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="gestante" id="questao.7.sim"
+                                   value="true">
+                            <label class="custom-control-label" for="questao.7.sim">Sim</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" name="gestante" id="questao.7.nao"
+                                   value="false" checked="checked">
+                            <label class="custom-control-label" for="questao.7.nao">Não</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-row hs-buttons mt-2 mb-4">
+                <div class="col-6">
+                    <button class="form-control btn btn-primary" id="previousButton">Voltar</button>
+                </div>
+                <div class="col-6">
+                    <button class="form-control btn btn-primary" id="nextButton">Avançar</button>
+                </div>
+            </div>
+            
+            <input type="hidden" value="" name="hs-token" id="hs-token">
+            
+            
+        </form>
+         <input type="hidden" value="130,0,0" name="idadeMaxima" id="idadeMaxima">
+            <input type="hidden" value="18,0,0"  name="idadeMinima" id="idadeMinima">
+    </div>
+</main>
+<footer class="footer mt-auto">
+    <div class="container-fluid hs-footer py-3">
+        <div class="container d-flex justify-content-between">
+                <a href="http://www.umuarama.pr.gov.br/" title="Prefeitura Municipal de Umuarama">
+                    <img src="/img/logo.svg">
+                </a>
+        </div>
+    </div>
+    <div class="container-fluid hs-copyright py-3">
+        <div class="container d-flex justify-content-between">
+            <p class="mb-0">© <strong>Prefeitura Municipal de Umuarama </strong>
+                <script>document.write(new Date().getFullYear());</script>
+                | Todos os Direitos Reservados.
+            </p>
+            <p class="mb-0">Divisão de Tecnologia e Informação</p>
+        </div>
+    </div>
+</footer>
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld2posaAAAAAD1zdb7jor8FxjlMi1mnokaFqefQ"></script>
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery-mask-plugin/1.14.16/dist/jquery.mask.min.js"></script>
+<script src="/webjars/momentjs/2.29.1/min/moment.min.js"></script>
+<script src="/js/questionario-1.0.js"></script>
+</body>
+</html>
